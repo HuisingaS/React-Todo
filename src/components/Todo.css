@@ -1,0 +1,8 @@
+body {
+    background-color: lightgrey;
+}
+
+.task.completed {
+    text-decoration: line-through;
+    color: green;
+}

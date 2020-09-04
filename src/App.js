@@ -30,6 +30,15 @@ class App extends React.Component {
       });
     };
 
+    clearCompleted = () => {
+      this.setState({
+        taskList: this.state.taskList.filter((task) => {
+          return task.completed === false;
+        })
+      }
+      );
+    }
+
     addTodo = (todoName) => {
       const newTodo = {
         task: todoName,
@@ -45,12 +54,19 @@ class App extends React.Component {
       return (
         <div className="App">
           <div className="header">
-            <h1>Do it now!</h1>
+            <h1>Do it Now!</h1>
+            <h4>It's simple</h4>
+            <ul>
+              <li>Type a task in the box and click "Add Task"</li>
+              <li>Click the task in the list when the task is complete</li>
+              <li>Click the "Clear Completed" button to start over again. Yeh for chores!</li>
+            </ul>
             <TodoForm addTodo={this.addTodo} />
           </div>
           <TodoList 
           taskList={this.state.taskList}
           toggleCompleted={this.toggleCompleted}
+          clearCompleted={this.clearCompleted}
           />
         </div>
       );
